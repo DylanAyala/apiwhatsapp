@@ -23,7 +23,6 @@ def message():
 def messageBulk():
     if request.method == 'POST':
         content = request.get_json(silent=True)
-        print(content)
         if content['origen'] and content['contacto'] and content['mensaje'] and content['procesado'] == 0:
             MessageBulk.messageBulk(content)
             return jsonify({"status": True, "message": "Se inserto correctamente el mensaje"})
